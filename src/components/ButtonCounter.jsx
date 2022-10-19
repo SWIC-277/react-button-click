@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import useCount from "../hooks/useCount";
 
-function ButtonCounter() {
+function ButtonCounter({ txt }) {
   const [count, increment, reset] = useCount();
 
   return (
@@ -11,7 +12,7 @@ function ButtonCounter() {
         type="button"
         onClick={increment}
       >
-        Click me!
+        {txt}
       </button>
       <button
         className="rounded bg-orange-500 py-2 px-4 font-bold  hover:bg-orange-700"
@@ -23,5 +24,9 @@ function ButtonCounter() {
     </>
   );
 }
+
+ButtonCounter.propTypes = {
+  txt: PropTypes.string.isRequired,
+};
 
 export default ButtonCounter;
